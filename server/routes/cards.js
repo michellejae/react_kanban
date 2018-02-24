@@ -7,10 +7,9 @@ router
 //figure out a way to verify that the destroy is working right now it returns the same results regardless of if it worked or not. ie if the id existed or not
 .delete(`/:id`, (req, res) => {
   return new Card({id: req.params.id})
-  .destroy([require=true])
+  .destroy({require:true})
   .then(result => {
-    result = result.toJSON();
-    return result
+    return res.json({message:'deleted id'})
   })
   .catch(err => {
     return res.json({message: err.message})
