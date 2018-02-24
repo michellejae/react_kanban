@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../../../src/logo.svg';
 import './App.css';
 import AppTitle from '../../components/titleComp';
+import ColumnList from '../Column'
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
           <AppTitle />
+          <ColumnList />
       </div>
     );
   }
