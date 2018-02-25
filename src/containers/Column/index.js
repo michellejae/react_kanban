@@ -1,27 +1,14 @@
 import React from 'react';
-import ColumnListItem from '../../components/columnList'
+import ColumnListItem from '../../components/columnListComp'
 //import React, { Component } from 'react';
 
 const ColumnList = (props) =>{
-  const columns = [{
-    id: 1,
-    name:'IN QUEUE'},
-    {id: 2,
-    name: 'IN PROGRESS'},
-    {id: 3,
-    name: 'DONE'}]
-    
 
   return (
-    <div className="columns">
-
-        {columns.map((column) => {
-           return (
-             <ColumnListItem key={column.id} column={column} />  
-           )
-        })
-      }
-
+    <div className="columns">  
+             <ColumnListItem name="IN QUEUE"  />
+             <ColumnListItem name="IN PROGRESS" />
+             <ColumnListItem name="DONE" />
      </div>   
   )
 }

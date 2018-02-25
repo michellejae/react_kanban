@@ -3,11 +3,18 @@ import logo from '../../../src/logo.svg';
 import './App.css';
 import AppTitle from '../../components/titleComp';
 import ColumnList from '../Column'
+import { connect } from 'react-redux';
+import { loadCardAction } from '../../actions/cardsAction'
 
 class App extends Component {
   constructor(props) {
     super ()
   }
+
+  componentDidMount(){
+    this.props.loadCard();
+  }
+
   render() {
     return (
       <div className="App">
@@ -22,4 +29,20 @@ class App extends Component {
   }
 }
 
-export default App;
+
+
+const mapStateToProp = state => {
+  return {
+    cards: state.cards
+  }
+}
+
+ const mapDispatchToProps = (dispatch) => {
+  return {
+    loadCard: () => {
+      dispatch(loadCardAction());
+    }
+  }
+ }
+
+ export default connect(mapStateToProp, mapDispatchToProps)(App)
