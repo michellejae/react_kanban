@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../../../src/logo.svg';
 import './App.css';
 import AppTitle from '../../components/titleComp';
-import ColumnList from '../Column'
+import ColumnListContainer from '../Column'
 import { connect } from 'react-redux';
 import { loadCardAction } from '../../actions/cardsAction'
 
@@ -11,10 +11,7 @@ class App extends Component {
     super ()
   }
 
-  componentDidMount(){
-    this.props.loadCard();
-  }
-
+ 
   render() {
     return (
       <div className="App">
@@ -23,7 +20,8 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
           <AppTitle />
-          <ColumnList />
+          <ColumnListContainer />
+
       </div>
     );
   }
@@ -33,7 +31,7 @@ class App extends Component {
 
 const mapStateToProp = state => {
   return {
-    cards: state.cards
+    caRDs: state.cards.cards
   }
 }
 

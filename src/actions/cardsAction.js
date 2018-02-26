@@ -9,8 +9,13 @@ export const loadCardAction = () => {
     return fetch(`${KANBAN_STUB}/cards/`)
     .then(result => {
       return result.json()
-    }).then(json =>{
-      console.log(json)
+    }).then(cards => {
+      dispatch({
+        type: LOAD_CARDS,
+        cards
+      })
+    }).catch(err => {
+      console.log(err)
     })
   }
 }

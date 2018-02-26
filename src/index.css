@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-.columns {
+.ColumnContainer {
   border: solid greenyellow 2px;
   display: flex;
   height: 300px;
@@ -14,4 +14,8 @@ body {
 
 .singleColumn {
   border: solid blueviolet 2px;
+}
+
+.SingleCard {
+  border: solid rgb(231, 42, 175) 2px;
 }

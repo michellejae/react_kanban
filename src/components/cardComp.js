@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
 
+import React from 'react';
 
-class Card extends Component  {
-  constructor(props){
-    super(props)
-  }
+const CardComponent = ({cardInfo}) => {
 
-
-  render (){
-    return (
-      <div className="SingleCard">
-        <span>TEST</span>
-      </div>
-    )
-  }
-
+  return (
+    cardInfo.map((card, idx) => {
+      return (
+        <div className="SingleCard">
+          <span className="cardTitle">{card.name}</span>
+          <br />
+          <span className="cardPriority">Priority: {card.priority}</span>
+          <br />
+          <span className="cardCreatedBy">{card.created_by}</span>
+          <br />
+          <span className="cardAssignedTo">{card.assigned_to}</span>
+        </div>
+      )
+   })
+  
+  )
 }
 
 
-export default Card;
+export default CardComponent

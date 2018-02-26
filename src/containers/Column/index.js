@@ -1,16 +1,15 @@
 import React from 'react';
-import ColumnListItem from '../../components/columnListComp'
+import Column from '../../components/columnListComp'
 //import React, { Component } from 'react';
 
-const ColumnList = (props) =>{
-
+const ColumnListContainer = (props) =>{
   return (
-    <div className="columns">  
-             <ColumnListItem name="IN QUEUE"  />
-             <ColumnListItem name="IN PROGRESS" />
-             <ColumnListItem name="DONE" />
+    <div className="ColumnContainer">  
+             <Column name="IN QUEUE"  />
+             <Column name="IN PROGRESS" />
+             <Column name="DONE" />
      </div>   
   )
 }
 
-export default ColumnList
+export default ColumnListContainer
