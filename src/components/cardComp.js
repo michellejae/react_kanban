@@ -7,7 +7,7 @@ const CardComponent = ({cardInfo}) => {
     cardInfo.map((card, idx) => {
       return (
         <div className="SingleCard">
-          <span className="cardTitle">{card.name}</span>
+          <span  className="cardTitle">{card.name}</span>
           <br />
           <span className="cardPriority">Priority: {card.priority}</span>
           <br />

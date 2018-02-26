@@ -7,7 +7,6 @@ body {
 .ColumnContainer {
   border: solid greenyellow 2px;
   display: flex;
-  height: 300px;
   flex-direction: row;
   justify-content: space-around;
 }

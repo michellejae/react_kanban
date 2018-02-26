@@ -3,8 +3,10 @@ import logo from '../../../src/logo.svg';
 import './App.css';
 import AppTitle from '../../components/titleComp';
 import ColumnListContainer from '../Column'
+import  AddCardForm  from '../addCardForm' 
 import { connect } from 'react-redux';
 import { loadCardAction } from '../../actions/cardsAction'
+
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +22,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
           <AppTitle />
+          <AddCardForm />
           <ColumnListContainer />
 
       </div>

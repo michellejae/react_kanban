@@ -47,6 +47,7 @@ router
 })
 
 .post(`/`, (req, res) => {
+  console.log(req.body)
   let {name, priority, status, created_by, assigned_to} = req.body
   return new Card({name, priority, status, created_by, assigned_to})
   .save()
