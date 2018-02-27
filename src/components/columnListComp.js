@@ -12,14 +12,18 @@ class Column extends Component {
     this.props.loadCard();
   }
 
-  render () {
+  
 
+  render () {
+    let cardContent = this.props.cards.filter((element) => {
+      return element.status === this.props.name
+    })
   return (
     <div className="singleColumn">
       <span className="coulmnTitle"> {this.props.name} </span>
       <br />
       <div className="CardContainer">
-      <CardComponent  cardInfo={this.props.cards} />
+      <CardComponent  cardInfo={cardContent} />
       </div>
    </div>
     )

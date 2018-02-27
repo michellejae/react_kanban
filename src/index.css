@@ -12,9 +12,19 @@ body {
 }
 
 .singleColumn {
+  display: flex;
   border: solid blueviolet 2px;
+  width: 400px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.CardContainer {
+  border: solid rgb(106, 220, 240) 2px;
+  width: 300px;
+  margin: auto;
 }
 
 .SingleCard {
-  border: solid rgb(231, 42, 175) 2px;
+  border: solid red 1px;
 }

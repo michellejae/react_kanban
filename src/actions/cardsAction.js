@@ -32,7 +32,6 @@ export const addCardAction = (card) => {
   }
 
   return dispatch => {
-    console.log('testssdfs')
     return fetch(`${KANBAN_STUB}/cards/`, {
       method: 'POST',
       headers: {
