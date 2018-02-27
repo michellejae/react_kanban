@@ -79,3 +79,19 @@ export const editCardAction = (card) => {
     })
   }
 }
+
+export const deleteCardAction = (card) => {
+  let id = card.id
+
+  return dispatch => {
+    return fetch(`${KANBAN_STUB}/cards/${id}`, {
+      method: 'DELETE',
+    }).then(result => {
+      return result.json()
+    }).then(deletedCard => {
+      return loadCardAction()(dispatch)
+    }).catch(err =>{
+      console.log(err)
+    })
+  }
+}

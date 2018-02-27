@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadCardAction, editCardAction } from '../actions/cardsAction'
+import { loadCardAction, editCardAction, deleteCardAction } from '../actions/cardsAction'
 import CardComponent from './cardComp'
 
 class Column extends Component {
@@ -12,10 +12,20 @@ class Column extends Component {
     this.findCardById = this.findCardById.bind(this)
     this.moveLeft = this.moveLeft.bind(this)
     this.moveRight = this.moveRight.bind(this)
+    this.handleDeleteCard = this.handleDeleteCard.bind(this)
+  }
+
+  handleDeleteCard(event){
+    const cardID = event.target.id
+    if (cardID) {
+      let foundCard =  this.findCardById(cardID)
+       if (foundCard) {
+         this.props.deleteCard(foundCard)
+       }
+    }
   }
 
   handleChangeRight(event){
-    console.log(event.target.id)
     const cardID = event.target.id
     if (cardID) {
     let foundCard =  this.findCardById(cardID)
@@ -35,16 +45,6 @@ class Column extends Component {
     }
   }
 
-  moveLeft(card){
-    if(card.status === 'DONE'){
-      card.status = 'IN PROGRESS'
-    } else if(card.status === 'IN PROGRESS'){
-      card.status = 'IN QUEUE'
-    }
-    console.log(card)
-    this.props.editCard(card)
-  }
-
   moveRight(card) {
     if(card.status === 'IN QUEUE'){
        card.status = 'IN PROGRESS'
@@ -56,15 +56,26 @@ class Column extends Component {
     }
   
 
-findCardById(id) {
-  id = +id
-  const foundCard = this.props.cards.find(card =>{
-    return card.id === id
-  });
-  if (foundCard){
-    return foundCard
+  moveLeft(card){
+    if(card.status === 'DONE'){
+      card.status = 'IN PROGRESS'
+    } else if(card.status === 'IN PROGRESS'){
+      card.status = 'IN QUEUE'
+    }
+    console.log(card)
+    this.props.editCard(card)
   }
-}
+
+
+  findCardById(id) {
+    id = +id
+    const foundCard = this.props.cards.find(card =>{
+      return card.id === id
+    });
+    if (foundCard){
+      return foundCard
+    }
+  }
 
   render () {
    
@@ -72,13 +83,13 @@ findCardById(id) {
       return card.status === this.props.name
     }).map((card) => {
       if(card.status === 'IN QUEUE'){
-        return <CardComponent  key={card.id} {...card} handleChangeRight={this.handleChangeRight}/>
+        return <CardComponent  key={card.id} {...card} handleDeleteCard={this.handleDeleteCard} handleChangeRight={this.handleChangeRight}/>
       }
       if (card.status === 'IN PROGRESS'){
-        return <CardComponent key={card.id} {...card} handleChangeLeft={this.handleChangeLeft} handleChangeRight={this.handleChangeRight} />
+        return <CardComponent key={card.id} {...card} handleDeleteCard={this.handleDeleteCard} handleChangeLeft={this.handleChangeLeft} handleChangeRight={this.handleChangeRight} />
       }
       if (card.status === 'DONE'){
-        return <CardComponent key={card.id} {...card} handleChangeLeft={this.handleChangeLeft}/>
+        return <CardComponent key={card.id} {...card} handleDeleteCard={this.handleDeleteCard} handleChangeLeft={this.handleChangeLeft}/>
       }
       return true
     })
@@ -108,6 +119,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     editCard: (card) =>{
       dispatch(editCardAction(card))
+    },
+    deleteCard: (card) =>{
+      dispatch(deleteCardAction(card))
     }
   }
  }
