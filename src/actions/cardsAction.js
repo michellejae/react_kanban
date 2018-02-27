@@ -3,7 +3,6 @@ import 'whatwg-fetch';
 const KANBAN_STUB = 'http://localhost:3000/api/kanban';
 
 export const LOAD_CARDS = 'LOAD_CARDS';
-export const ADD_CARD = 'ADD_CARD'
 
 export const loadCardAction = () => {
   return dispatch => {
@@ -46,6 +45,36 @@ export const addCardAction = (card) => {
      return loadCardAction()(dispatch)
     })
     .catch(err => {
+      console.log(err)
+    })
+  }
+}
+
+export const editCardAction = (card) => {
+
+  let id = card.id
+  const editCard = {
+    name: card.name,
+    priority: card.priority,
+    status: card.status,
+    created_by: card.created_by,
+    assigned_to: card.assigned_to
+  }
+
+ return dispatch => {
+    return fetch(`${KANBAN_STUB}/cards/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify(
+        editCard
+      )
+    }).then(result =>{
+      return result.json()
+    }).then(editedCard =>{
+      return loadCardAction()(dispatch)
+    }).catch(err => {
       console.log(err)
     })
   }
