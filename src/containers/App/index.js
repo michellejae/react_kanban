@@ -11,29 +11,50 @@ import { loadCardAction } from '../../actions/cardsAction'
 class App extends Component {
   constructor(props) {
     super ()
+    
+    this.state = {
+      showForm: false
+    }
+
+    this.handleNewCardForm = this.handleNewCardForm.bind(this)
+
+
   }
 
   componentDidMount(){
     this.props.loadCard();
+    
   }
 
+  handleNewCardForm (){
+    this.setState({showForm: true})
+    }
+  
 
- 
   render() {
     return (
+      <div className="parentClass">
+      <div className="newCardForm">
+      {this.state.showForm ? <AddCardForm /> : null}
+     
+      </div>
+      
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
           <AppTitle />
-          <AddCardForm />
+          <button className="formButton" onClick={this.handleNewCardForm}> New Card </button>
           <ColumnListContainer />
-
       </div>
-    );
+      </div>
+    )
   }
+
+
 }
+
 
 
 
