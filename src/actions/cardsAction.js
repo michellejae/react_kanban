@@ -4,6 +4,7 @@ const KANBAN_STUB = 'http://localhost:3000/api/kanban';
 
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const LOAD_SINGLE_CARD = 'LOAD_SINGLE_CARD';
+export const POP_UP = 'POP_UP'
 
 export const loadSingleCardAction = (id) => {
 
@@ -111,5 +112,12 @@ export const deleteCardAction = (card) => {
     }).catch(err =>{
       console.log(err)
     })
+  }
+}
+
+export const handlePopUps = (state) => {
+  return {
+    type: POP_UP,
+    state
   }
 }

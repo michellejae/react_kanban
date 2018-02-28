@@ -22,19 +22,18 @@ class EditCardForm extends Component {
      this.handleSubmit = this.handleSubmit.bind(this)
 }
 
-componentDidMount(){
+componentWillMount(){
   this.props.loadSingleCard(this.props.id);
-  this.setState({name: this.props.single.name,
-                 priority: this.props.single.priority,
-                 status: this.props.single.status,
-                 created_by: this.props.single.created_by,
-                 assigned_to: this.props.single.assigned_to});
-
+  this.setState({name: this.props.singleCard.name,
+                 priority: this.props.singleCard.priority,
+                 status: this.props.singleCard.status,
+                 created_by: this.props.singleCard.created_by,
+                 assigned_to: this.props.singleCard.assigned_to});
 }
 
 
+
 handleEditName(event){
-  //this.setState({name: this.props.single.name})
   this.setState({name: event.target.value})
 }
 
@@ -59,35 +58,39 @@ handleSubmit(event){
     status: this.state.status, 
     created_by: this.state.created_by,
     assigned_to: this.state.assigned_to}
+   
+
     this.props.editCard(editedCard)
   }
 
   render (){
+    console.log(this.state)
+    console.log(this.props.singleCard)
     return (
       <form className="editForm" onSubmit={this.handleSubmit}>
       <input
         type="text"
         value={this.state.name}
         onChange={this.handleEditName}
-        placeholder={this.props.single.name}
+        placeholder={this.props.singleCard.name}
       />
       <input
         type="text"
         value={this.state.priority}
         onChange={this.handleEditPriority}
-        placeholder={this.props.single.priority}
+        placeholder={this.props.singleCard.priority}
       />
       <input
         type="text"
         value={this.state.created_by}
         onChange={this.handleEditCreatedBy}
-        placeholder={this.props.single.created_by}
+        placeholder={this.props.singleCard.created_by}
       />
       <input
         type="text"
         value={this.state.assigned_to}
         onChange={this.handleEditAssignedTo}
-        placeholder={this.props.single.assigned_to}
+        placeholder={this.props.singleCard.assigned_to}
       />
         <input type="submit" value="submit" />
       </form>
@@ -97,8 +100,8 @@ handleSubmit(event){
 
 const mapStateToProp = state => {
   return {
-    CARDS: state.cards.cards,
-    single: state.cards.singleCard
+    cards: state.cards.cards,
+    singleCard: state.cards.singleCard
   }
 }
 

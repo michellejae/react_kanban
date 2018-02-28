@@ -1,8 +1,15 @@
-import { LOAD_CARDS, LOAD_SINGLE_CARD } from '../actions/cardsAction';
+import { LOAD_CARDS, LOAD_SINGLE_CARD, POP_UP} from '../actions/cardsAction';
 
 const initialState = {
   cards: [],
-  singleCard: ''
+  singleCard: {   
+    name: '',
+    priority: '',
+    status: '',
+    created_by: '',
+    assigned_to: ''
+  },
+  showEdit: ''
 }
 
 export default (state = initialState, action) => {
@@ -11,6 +18,8 @@ export default (state = initialState, action) => {
     return {...state, cards: action.cards}
     case LOAD_SINGLE_CARD:
     return {...state, singleCard: action.singleCard}
+    case POP_UP:
+    return {...state, showEdit: action.state}
   default: 
   return state;
   }

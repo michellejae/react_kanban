@@ -4,6 +4,7 @@ import './App.css';
 import AppTitle from '../../components/titleComp';
 import ColumnListContainer from '../Column'
 import  AddCardForm  from '../addCardForm' 
+import  EditCardForm from '../editCardForm'
 import { connect } from 'react-redux';
 import { loadCardAction } from '../../actions/cardsAction'
 
@@ -32,8 +33,12 @@ class App extends Component {
   
 
   render() {
+   
     return (
       <div className="parentClass">
+      <div className="EditCard">
+            {this.props.showEdit ? <EditCardForm id={this.props.showEdit}/> : null}
+          </div>
       <div className="newCardForm">
       {this.state.showForm ? <AddCardForm /> : null}
      
@@ -57,7 +62,8 @@ class App extends Component {
 
 const mapStateToProp = state => {
   return {
-    caRDs: state.cards.cards
+    cards: state.cards.cards,
+    showEdit: state.cards.showEdit
   }
 }
 

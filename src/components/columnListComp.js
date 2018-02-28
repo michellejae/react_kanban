@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadCardAction, editCardAction, deleteCardAction } from '../actions/cardsAction'
+import { loadCardAction, editCardAction, deleteCardAction, handlePopUps } from '../actions/cardsAction'
 import CardComponent from './cardComp';
-import EditCardForm from '../containers/editCardForm'
+
 
 class Column extends Component {
   constructor (props) {
     super ()
 
-    this.state = {
-      showEdit: null
-    }
+ 
 
     this.handleChangeLeft = this.handleChangeLeft.bind(this)
     this.handleChangeRight = this.handleChangeRight.bind(this)
@@ -23,7 +21,7 @@ class Column extends Component {
 
   handleEditButton(event){
     const cardID = event.target.id
-    this.setState({showEdit: cardID})
+    this.props.showEditCard(cardID)
   }
 
   handleDeleteCard(event){
@@ -88,17 +86,14 @@ class Column extends Component {
   }
 
   render () {
-
     return (
       <div className="bigDiv">
   
 
+
         <div className="singleColumn">
           <span className="coulmnTitle"> {this.props.name} </span>
           <br />
-          <div className="EditCard">
-            {this.state.showEdit ? <EditCardForm id={this.state.showEdit}/> : null}
-          </div>
           <div className="CardContainer">
     
             {
@@ -127,6 +122,7 @@ class Column extends Component {
 const mapStateToProp = state => {
   return {
     cards: state.cards.cards
+   
   }
 }
 
@@ -136,10 +132,13 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(loadCardAction());
     },
     editCard: (card) =>{
-      dispatch(editCardAction(card))
+      dispatch(editCardAction(card));
     },
     deleteCard: (card) =>{
-      dispatch(deleteCardAction(card))
+      dispatch(deleteCardAction(card));
+    },
+    showEditCard: (id) =>{
+      dispatch(handlePopUps(id));
     }
   }
  }
