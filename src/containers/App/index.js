@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../../../src/logo.svg';
+// import logo from '../../../src/logo.svg';
 import './App.css';
 import AppTitle from '../../components/titleComp';
 import ColumnListContainer from '../Column'
@@ -40,10 +40,7 @@ class App extends Component {
       </div>
       
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+
           <AppTitle />
           <button className="formButton" onClick={this.handleNewCardForm}> New Card </button>
           <ColumnListContainer />

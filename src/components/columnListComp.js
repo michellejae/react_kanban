@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadCardAction, editCardAction, deleteCardAction } from '../actions/cardsAction'
-import CardComponent from './cardComp'
+import CardComponent from './cardComp';
+import EditCardForm from '../containers/editCardForm'
 
 class Column extends Component {
   constructor (props) {
     super ()
+
+    this.state = {
+      showEdit: null
+    }
 
     this.handleChangeLeft = this.handleChangeLeft.bind(this)
     this.handleChangeRight = this.handleChangeRight.bind(this)
@@ -13,6 +18,12 @@ class Column extends Component {
     this.moveLeft = this.moveLeft.bind(this)
     this.moveRight = this.moveRight.bind(this)
     this.handleDeleteCard = this.handleDeleteCard.bind(this)
+    this.handleEditButton = this.handleEditButton.bind(this)
+  }
+
+  handleEditButton(event){
+    const cardID = event.target.id
+    this.setState({showEdit: cardID})
   }
 
   handleDeleteCard(event){
@@ -62,7 +73,6 @@ class Column extends Component {
     } else if(card.status === 'IN PROGRESS'){
       card.status = 'IN QUEUE'
     }
-    console.log(card)
     this.props.editCard(card)
   }
 
@@ -78,29 +88,37 @@ class Column extends Component {
   }
 
   render () {
-   
-    let cardsContent = this.props.cards.filter((card) => {
-      return card.status === this.props.name
-    }).map((card) => {
-      if(card.status === 'IN QUEUE'){
-        return <CardComponent  key={card.id} {...card} handleDeleteCard={this.handleDeleteCard} handleChangeRight={this.handleChangeRight}/>
-      }
-      if (card.status === 'IN PROGRESS'){
-        return <CardComponent key={card.id} {...card} handleDeleteCard={this.handleDeleteCard} handleChangeLeft={this.handleChangeLeft} handleChangeRight={this.handleChangeRight} />
-      }
-      if (card.status === 'DONE'){
-        return <CardComponent key={card.id} {...card} handleDeleteCard={this.handleDeleteCard} handleChangeLeft={this.handleChangeLeft}/>
-      }
-      return true
-    })
 
-  return (
-    <div className="singleColumn">
-      <span className="coulmnTitle"> {this.props.name} </span>
-      <br />
-      <div className="CardContainer">
-     {cardsContent}
-      </div>
+    return (
+      <div className="bigDiv">
+  
+
+        <div className="singleColumn">
+          <span className="coulmnTitle"> {this.props.name} </span>
+          <br />
+          <div className="EditCard">
+            {this.state.showEdit ? <EditCardForm id={this.state.showEdit}/> : null}
+          </div>
+          <div className="CardContainer">
+    
+            {
+              this.props.cards.filter((card) => {
+                return card.status === this.props.name
+              }).map((card) => {
+                if(card.status === 'IN QUEUE'){
+                  return <CardComponent  key={card.id} {...card} handleEditButton={this.handleEditButton} handleDeleteCard={this.handleDeleteCard} handleChangeRight={this.handleChangeRight}/>
+                }
+                if (card.status === 'IN PROGRESS'){
+                  return <CardComponent key={card.id} {...card} handleEditButton={this.handleEditButton} handleDeleteCard={this.handleDeleteCard} handleChangeLeft={this.handleChangeLeft} handleChangeRight={this.handleChangeRight} />
+                }
+                if (card.status === 'DONE'){
+                  return <CardComponent key={card.id} {...card} handleEditButton={this.handleEditButton} handleDeleteCard={this.handleDeleteCard} handleChangeLeft={this.handleChangeLeft}/>
+                }
+                return true
+              })
+            }
+          </div>
+        </div>
    </div>
     )
   } 

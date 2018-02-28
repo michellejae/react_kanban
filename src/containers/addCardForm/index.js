@@ -94,7 +94,6 @@ const mapStateToProp = state => {
 const mapDispatchToProps = dispatch => {
   return {
     newCard: (card) => {
-  
       dispatch(addCardAction(card));
     
     }

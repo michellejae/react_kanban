@@ -3,6 +3,24 @@ import 'whatwg-fetch';
 const KANBAN_STUB = 'http://localhost:3000/api/kanban';
 
 export const LOAD_CARDS = 'LOAD_CARDS';
+export const LOAD_SINGLE_CARD = 'LOAD_SINGLE_CARD';
+
+export const loadSingleCardAction = (id) => {
+
+  return dispatch => {
+    return fetch(`${KANBAN_STUB}/cards/${id}`)
+    .then(result => {
+      return result.json()
+    }).then(singleCard =>{
+      dispatch({
+        type: LOAD_SINGLE_CARD,
+        singleCard
+      })
+    }).catch(err =>{
+      console.log(err)
+    })
+  }
+}
 
 export const loadCardAction = () => {
   return dispatch => {

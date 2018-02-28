@@ -27,6 +27,13 @@ body {
 
 .SingleCard {
   border: solid red 1px;
+  position: relative;
+}
+
+.editCard {
+  position: absolute;
+  top: 50%;
+  left: 30%;
 }
 
 .ParentClass{
