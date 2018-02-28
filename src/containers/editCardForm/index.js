@@ -23,13 +23,18 @@ class EditCardForm extends Component {
 }
 
 componentDidMount(){
-  this.props.loadSingleCard(this.props.id)
- // this.setState({name: this.props.single.name})
+  this.props.loadSingleCard(this.props.id);
+  this.setState({name: this.props.single.name,
+                 priority: this.props.single.priority,
+                 status: this.props.single.status,
+                 created_by: this.props.single.created_by,
+                 assigned_to: this.props.single.assigned_to});
+
 }
 
 
 handleEditName(event){
-  this.setState({name: this.props.single.name})
+  //this.setState({name: this.props.single.name})
   this.setState({name: event.target.value})
 }
 
@@ -50,10 +55,10 @@ handleSubmit(event){
   const editedCard = {
     id: this.props.id,
     name: this.state.name,
-    priority: this.state.priority ? this.state.priority : this.props.single.priority,
-    status: this.state.status ? this.state.status : this.props.single.status, 
-    created_by: this.state.created_by ? this.state.created : this.props.single.created_by,
-    assigned_to: this.state.assigned_to ? this.state.assigned_to : this.props.single.assigned_to}
+    priority: this.state.priority,
+    status: this.state.status, 
+    created_by: this.state.created_by,
+    assigned_to: this.state.assigned_to}
     this.props.editCard(editedCard)
   }
 
