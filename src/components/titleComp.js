@@ -4,7 +4,7 @@ const AppTitle = ({title}) => {
   return (
     <div className="title">
     {
-      <h1>le titre</h1>
+      <h1>Kanban Kanban</h1>
     }
   </div>  
   )

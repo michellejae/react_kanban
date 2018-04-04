@@ -64,8 +64,6 @@ handleSubmit(event){
   }
 
   render (){
-    console.log(this.state)
-    console.log(this.props.singleCard)
     return (
       <form className="editForm" onSubmit={this.handleSubmit}>
       <input
