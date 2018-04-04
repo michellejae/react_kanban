@@ -13,7 +13,7 @@ const CardComponent = ({name, priority, created_by, assigned_to, handleEditButto
       <br />
       <span className="cardAssignedTo">{assigned_to}</span>
       <button className="editButton" id={id} onClick={handleEditButton}> Edit </button>
-      <button className="deleteButton" onClick={handleDeleteCard}> Delete </button>
+      <button className="deleteButton" id={id} onClick={handleDeleteCard}> Delete </button>
       {handleChangeLeft ?  <button id={id}  className="buttonLeft" onClick={handleChangeLeft}>  {`<`} </button> : null}
       
       {handleChangeRight ? <button  id={id} className="buttonRight" onClick={handleChangeRight}> {`>`} </button> : null}
