@@ -2,33 +2,39 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color:  #F6F7F8;
 }
 
+
 .ColumnContainer {
-  border: solid greenyellow 2px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .singleColumn {
   display: flex;
-  border: solid blueviolet 2px;
-  width: 400px;
+  width: 300px;
   justify-content: center;
   flex-direction: column;
 }
 
+.columnTitle {
+  background-color:  #F6F7F8;
+  border-radius: 25px;
+}
+
 .CardContainer {
-  border: solid rgb(106, 220, 240) 10px;
-  width: 300px;
   margin: auto;
+  width: 300px;
+  border-radius: 25px;
+  background-color:  #F6F7F8;
 }
 
 .SingleCard {
-  border: solid orangered 1px;
+  background-color: #FEF7DE;
   position: relative;
+  margin: 5px;
+  border-radius: 25px;
 }
 
 .editCard {

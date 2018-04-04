@@ -87,12 +87,12 @@ class Column extends Component {
 
   render () {
     return (
-      <div className="bigDiv">
+   
   
 
 
         <div className="singleColumn">
-          <span className="coulmnTitle"> {this.props.name} </span>
+          <div className="columnTitle"> {this.props.name} </div>
           <br />
           <div className="CardContainer">
     
@@ -114,7 +114,7 @@ class Column extends Component {
             }
           </div>
         </div>
-   </div>
+
     )
   } 
 }
