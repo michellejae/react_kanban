@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadCardAction, editCardAction, deleteCardAction, handlePopUps } from '../actions/cardsAction'
+import { loadCardAction, editCardAction, deleteCardAction, handlePopUps, handleAddForm } from '../actions/cardsAction'
 import CardComponent from './cardComp';
-
 
 class Column extends Component {
   constructor (props) {
     super ()
-
- 
-
     this.handleChangeLeft = this.handleChangeLeft.bind(this)
     this.handleChangeRight = this.handleChangeRight.bind(this)
     this.findCardById = this.findCardById.bind(this)
@@ -88,9 +84,6 @@ class Column extends Component {
   render () {
     return (
    
-  
-
-
         <div className="singleColumn">
           <div className="columnTitle"> {this.props.name} </div>
           <br />
@@ -139,6 +132,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     showEditCard: (id) =>{
       dispatch(handlePopUps(id));
+    }, 
+    addCard: (state) => {
+      dispatch(handleAddForm(state));
     }
   }
  }

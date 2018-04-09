@@ -6,7 +6,7 @@ import ColumnListContainer from '../Column'
 import  AddCardForm  from '../addCardForm' 
 import  EditCardForm from '../editCardForm'
 import { connect } from 'react-redux';
-import { loadCardAction } from '../../actions/cardsAction'
+import { loadCardAction, handleAddForm } from '../../actions/cardsAction'
 
 
 class App extends Component {
@@ -19,8 +19,7 @@ class App extends Component {
 
     this.handleNewCardForm = this.handleNewCardForm.bind(this)
 
-
-  }
+   }
 
   componentDidMount(){
     this.props.loadCard();
@@ -33,37 +32,33 @@ class App extends Component {
   
 
   render() {
-   
+    console.log(this.props.showAddForm)
     return (
       <div className="parentClass">
-      <div className="EditCard">
+        <div className="EditCard">
             {this.props.showEdit ? <EditCardForm id={this.props.showEdit}/> : null}
-          </div>
-      <div className="newCardForm">
-      {this.state.showForm ? <AddCardForm /> : null}
-     
-      </div>
-      
-      <div className="App">
-
+        </div>
+        <div className="newCardForm">
+        {this.props.showAddForm ? <AddCardForm /> : null}
+            {/* {this.state.showForm ? <AddCardForm /> : null} */}
+        </div>
+        <div className="App">
           <AppTitle />
-          <button className="formButton" onClick={this.handleNewCardForm}> New Card </button>
+          <button className="formButton" onClick={this.props.addCard(false)}> New Card </button>
+          {/* <button className="formButton" onClick={this.handleNewCardForm}> New Card </button> */}
           <ColumnListContainer />
-      </div>
+        </div>
       </div>
     )
   }
-
-
 }
-
-
 
 
 const mapStateToProp = state => {
   return {
     cards: state.cards.cards,
-    showEdit: state.cards.showEdit
+    showEdit: state.cards.showEdit,
+    showAddForm: state.cards.showAddForm
   }
 }
 
@@ -71,6 +66,9 @@ const mapStateToProp = state => {
   return {
     loadCard: () => {
       dispatch(loadCardAction());
+    },
+    addCard: (state) => {
+      dispatch(handleAddForm(state))
     }
   }
  }

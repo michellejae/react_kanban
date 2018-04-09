@@ -19,6 +19,7 @@ class AddCardForm extends Component {
      this.handleChangeCreatedBy = this.handleChangeCreatedBy.bind(this);
      this.handleChangeAssignedTo = this.handleChangeAssignedTo.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this)
+
     }
 
 
@@ -48,7 +49,7 @@ class AddCardForm extends Component {
       this.props.newCard(newCard)
       this.setState({ name: '', priority: '', created_by:'', assigned_to:'' });
     }
-    
+
     render(){
 
       return (

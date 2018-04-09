@@ -4,7 +4,8 @@ const KANBAN_STUB = 'http://localhost:3000/api/kanban';
 
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const LOAD_SINGLE_CARD = 'LOAD_SINGLE_CARD';
-export const POP_UP = 'POP_UP'
+export const POP_UP = 'POP_UP';
+export const ADD_FORM = 'ADD_FORM';
 
 export const loadSingleCardAction = (id) => {
 
@@ -118,6 +119,13 @@ export const deleteCardAction = (card) => {
 export const handlePopUps = (state) => {
   return {
     type: POP_UP,
+    state
+  }
+}
+
+export const handleAddForm = (state) => {
+  return {
+    type: ADD_FORM,
     state
   }
 }
