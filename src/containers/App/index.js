@@ -44,7 +44,7 @@ class App extends Component {
         </div>
         <div className="App">
           <AppTitle />
-          <button className="formButton" onClick={this.props.addCard(false)}> New Card </button>
+          {/* <button className="formButton" onClick={this.props.addCard(false)}> New Card </button> */}
           {/* <button className="formButton" onClick={this.handleNewCardForm}> New Card </button> */}
           <ColumnListContainer />
         </div>
@@ -66,9 +66,6 @@ const mapStateToProp = state => {
   return {
     loadCard: () => {
       dispatch(loadCardAction());
-    },
-    addCard: (state) => {
-      dispatch(handleAddForm(state))
     }
   }
  }
