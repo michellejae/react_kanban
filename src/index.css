@@ -51,7 +51,7 @@ body {
 .newCardForm {
   position: absolute;
   width: 40%;
-  top: 50%;
+  top: 75%;
   left:40%;
   display: flex;
   background-color: grey;

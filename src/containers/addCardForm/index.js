@@ -19,6 +19,7 @@ class AddCardForm extends Component {
      this.handleChangeCreatedBy = this.handleChangeCreatedBy.bind(this);
      this.handleChangeAssignedTo = this.handleChangeAssignedTo.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this)
+     this.handleCloseButton = this.handleCloseButton.bind(this)
 
     }
 
@@ -50,11 +51,16 @@ class AddCardForm extends Component {
       this.setState({ name: '', priority: '', created_by:'', assigned_to:'' });
       this.props.addCard(false)
     }
+    
+    handleCloseButton(){
+      this.props.addCard(false)
+    }
 
     render(){
 
       return (
-     
+        <div className="formContainer">
+        <button className="closeForm" onClick={this.handleCloseButton}>X</button>
           <form className="mainForm" onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -82,7 +88,7 @@ class AddCardForm extends Component {
           />
             <input type="submit" value="submit" />
           </form>
-
+      </div>
       )
     }
 }
