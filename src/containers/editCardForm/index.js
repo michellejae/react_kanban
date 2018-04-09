@@ -20,6 +20,7 @@ class EditCardForm extends Component {
      this.handleEditCreatedBy = this.handleEditCreatedBy.bind(this);
      this.handleEditAssignedTo = this.handleEditAssignedTo.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this)
+     this.handleEditCloseButton = this.handleEditCloseButton.bind(this)
 }
 
 componentWillMount(){
@@ -62,8 +63,14 @@ handleSubmit(event){
     this.props.closeEdit('')
   }
 
+  handleEditCloseButton(){
+    this.props.closeEdit('')
+  }
+
   render (){
     return (
+      <div className="editFormContainer">
+      <button className="closeForm" onClick={this.handleEditCloseButton}>X</button>
       <form className="editForm" onSubmit={this.handleSubmit}>
       <input
         type="text"
@@ -91,6 +98,7 @@ handleSubmit(event){
       />
         <input type="submit" value="submit" />
       </form>
+      </div>
     )
   }
 }
