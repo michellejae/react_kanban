@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addCardAction } from '../../actions/cardsAction'
+import { addCardAction, handleAddForm } from '../../actions/cardsAction'
 
 class AddCardForm extends Component {
   constructor (props) {
@@ -48,6 +48,7 @@ class AddCardForm extends Component {
                        assigned_to: this.state.assigned_to}
       this.props.newCard(newCard)
       this.setState({ name: '', priority: '', created_by:'', assigned_to:'' });
+      this.props.addCard(false)
     }
 
     render(){
@@ -88,7 +89,7 @@ class AddCardForm extends Component {
 
 const mapStateToProp = state => {
   return {
-
+    showAddForm: state.cards.showAddForm
   }
 }
 
@@ -96,7 +97,9 @@ const mapDispatchToProps = dispatch => {
   return {
     newCard: (card) => {
       dispatch(addCardAction(card));
-    
+    },
+    addCard: (state) => {
+      dispatch(handleAddForm(state));
     }
   }
 }
