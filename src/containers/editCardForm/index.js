@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {  editCardAction, loadSingleCardAction } from '../../actions/cardsAction'
+import {  editCardAction, loadSingleCardAction, handlePopUps } from '../../actions/cardsAction'
 
 class EditCardForm extends Component {
   constructor (props) {
@@ -58,9 +58,8 @@ handleSubmit(event){
     status: this.state.status, 
     created_by: this.state.created_by,
     assigned_to: this.state.assigned_to}
-   
-
     this.props.editCard(editedCard)
+    this.props.closeEdit('')
   }
 
   render (){
@@ -110,6 +109,9 @@ const mapDispatchToProps = dispatch => {
     },
     editCard: (card) => {
       dispatch(editCardAction(card));
+    },
+    closeEdit: (id) => {
+      dispatch(handlePopUps(id))
     }
   }
 }
