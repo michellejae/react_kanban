@@ -12,11 +12,7 @@ import { loadCardAction, handleAddForm } from '../../actions/cardsAction'
 class App extends Component {
   constructor(props) {
     super ()
-    
-    this.state = {
-      showForm: false
-    }
-
+ 
     this.handleNewCardForm = this.handleNewCardForm.bind(this)
 
    }
@@ -27,7 +23,7 @@ class App extends Component {
   }
 
   handleNewCardForm (){
-    this.setState({showForm: true})
+    this.props.addCard(true)
     }
   
 
@@ -40,12 +36,10 @@ class App extends Component {
         </div>
         <div className="newCardForm">
         {this.props.showAddForm ? <AddCardForm /> : null}
-            {/* {this.state.showForm ? <AddCardForm /> : null} */}
         </div>
         <div className="App">
           <AppTitle />
-          {/* <button className="formButton" onClick={this.props.addCard(false)}> New Card </button> */}
-          {/* <button className="formButton" onClick={this.handleNewCardForm}> New Card </button> */}
+          <button className="formButton" onClick={this.handleNewCardForm}> New Card </button>
           <ColumnListContainer />
         </div>
       </div>
@@ -66,6 +60,9 @@ const mapStateToProp = state => {
   return {
     loadCard: () => {
       dispatch(loadCardAction());
+    },
+    addCard: (state) => {
+      dispatch(handleAddForm(state));
     }
   }
  }

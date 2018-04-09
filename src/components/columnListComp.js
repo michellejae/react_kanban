@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadCardAction, editCardAction, deleteCardAction, handlePopUps, handleAddForm } from '../actions/cardsAction'
+import { loadCardAction, editCardAction, deleteCardAction, handlePopUps } from '../actions/cardsAction'
 import CardComponent from './cardComp';
 
 class Column extends Component {
@@ -132,9 +132,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     showEditCard: (id) =>{
       dispatch(handlePopUps(id));
-    }, 
-    addCard: (state) => {
-      dispatch(handleAddForm(state));
     }
   }
  }
