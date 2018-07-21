@@ -14,9 +14,9 @@ app.use(bodyParser.json());
 app.use(express.static(`public`));
 
 
-// app.get(`/api/hello`, (req, res) => {
-// res.send({ express: 'Hello From Express' })
-// })
+app.get(`/api/hello`, (req, res) => {
+res.send({ express: 'Hello From Express' })
+})
 
 app.use(`/api/kanban/cards`, cardRoute)
 

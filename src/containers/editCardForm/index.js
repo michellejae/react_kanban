@@ -6,7 +6,6 @@ class EditCardForm extends Component {
   constructor (props) {
   super ()
 
-
   this.state = {
     name: '',
     priority: '',
@@ -23,7 +22,7 @@ class EditCardForm extends Component {
      this.handleEditCloseButton = this.handleEditCloseButton.bind(this)
 }
 
-componentWillMount(){
+componentDidMount(){
   this.props.loadSingleCard(this.props.id);
   this.setState({name: this.props.singleCard.name,
                  priority: this.props.singleCard.priority,
@@ -31,7 +30,6 @@ componentWillMount(){
                  created_by: this.props.singleCard.created_by,
                  assigned_to: this.props.singleCard.assigned_to});
 }
-
 
 
 handleEditName(event){
@@ -59,6 +57,7 @@ handleSubmit(event){
     status: this.state.status, 
     created_by: this.state.created_by,
     assigned_to: this.state.assigned_to}
+    console.log('after', editedCard)
     this.props.editCard(editedCard)
     this.props.closeEdit('')
   }
@@ -68,6 +67,8 @@ handleSubmit(event){
   }
 
   render (){
+    console.log('first', this.state)
+    console.log('before', this.props.singleCard)
     return (
       <div className="editFormContainer">
       <button className="closeForm" onClick={this.handleEditCloseButton}>X</button>

@@ -28,7 +28,6 @@ class App extends Component {
   
 
   render() {
-    console.log(this.props.showAddForm)
     return (
       <div className="parentClass">
         <div className="EditCard">

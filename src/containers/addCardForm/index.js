@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { addCardAction, handleAddForm } from '../../actions/cardsAction'
 
+
 class AddCardForm extends Component {
   constructor (props) {
     super (props)
@@ -66,19 +67,22 @@ class AddCardForm extends Component {
             type="text"
             value={this.state.name}
             onChange={this.handleChangeName}
-            placeholder="name"
+            placeholder="name*"
+            required
           />
           <input
             type="text"
             value={this.state.priority}
             onChange={this.handleChangePriority}
-            placeholder="priority"
+            placeholder="priority*"
+            required
           />
           <input
             type="text"
             value={this.state.created_by}
             onChange={this.handleChangeCreatedBy}
-            placeholder="created by"
+            placeholder="created by*"
+            required
           />
           <input
             type="text"
@@ -87,6 +91,7 @@ class AddCardForm extends Component {
             placeholder="assigned to"
           />
             <input type="submit" value="submit" />
+            <div>* Required Fields</div>
           </form>
       </div>
       )
