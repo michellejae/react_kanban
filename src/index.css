@@ -4,19 +4,33 @@ body {
   font-family: sans-serif;
 }
 
+h1 {
+  margin: 0px
+}
 
+.title {
+  padding-bottom: 20px;
+  padding-top:20px
+}
 
 .ColumnContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  background-color: #FEFEFE;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding-top: 20px;
+  box-shadow: 5px 10px #888888;
+  border-radius: 25px;
 }
 
 .singleColumn {
   display: flex;
-  width: 300px;
+  width: 400px;
   justify-content: center;
   flex-direction: column;
+  height: 100vh;
 }
 
 .columnTitle {
@@ -25,17 +39,19 @@ body {
 }
 
 .CardContainer {
+  padding-top: 20px;
   margin: auto;
-  width: 300px;
+  width: 400px;
   border-radius: 25px;
   background-color:  #F6F7F8;
+  height: 100vh;
 }
 
 .SingleCard {
-  background-color: #FEF7DE;
-  position: relative;
-  margin: 5px;
+  background-color: #F5F1BC;
+  margin: auto;
   border-radius: 25px;
+  width: 350px;
 }
 
 .editCard {
@@ -44,8 +60,10 @@ body {
   left: 30%;
 }
 
-.ParentClass{
+.parentClass {
   position: relative;
+  height: 100vh;
+  background-color: lightsteelblue;
 }
 
 .newCardForm {
