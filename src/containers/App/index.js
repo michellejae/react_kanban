@@ -38,7 +38,7 @@ class App extends Component {
         </div>
         <div className="App">
           <AppTitle />
-          <button className="formButton" onClick={this.handleNewCardForm}> New Card </button>
+          <button className="formButton" onClick={this.handleNewCardForm}> New Task </button>
           <ColumnListContainer />
         </div>
       </div>
