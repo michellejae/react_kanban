@@ -8,6 +8,7 @@ class EditCardForm extends Component {
 
   this.state = {
     name: '',
+    details: '',
     priority: '',
     status: '',
     created_by: '',
@@ -15,6 +16,7 @@ class EditCardForm extends Component {
   }
   
      this.handleEditName = this.handleEditName.bind(this);
+     this.handleEditDetails = this.handleEditDetails.bind(this);
      this.handleEditPriority = this.handleEditPriority.bind(this);
      this.handleEditCreatedBy = this.handleEditCreatedBy.bind(this);
      this.handleEditAssignedTo = this.handleEditAssignedTo.bind(this);
@@ -40,6 +42,10 @@ handleEditPriority(event){
   this.setState({priority: event.target.value})
 }
 
+handleEditDetails(event){
+  this.setState({priority: event.target.value})
+}
+
 handleEditCreatedBy(event){
   this.setState({created_by: event.target.value})
 }
@@ -53,6 +59,7 @@ handleSubmit(event){
   const editedCard = {
     id: this.props.id,
     name: this.state.name,
+    details: this.state.details,
     priority: this.state.priority,
     status: this.state.status, 
     created_by: this.state.created_by,
@@ -84,6 +91,12 @@ handleSubmit(event){
         value={this.state.priority}
         onChange={this.handleEditPriority}
         placeholder={this.props.singleCard.priority}
+      />
+      <input
+            type="text"
+            value={this.state.details}
+            onChange={this.handleChangeDetails}
+            placeholder="additional details"
       />
       <input
         type="text"
