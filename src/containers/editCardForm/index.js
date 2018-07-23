@@ -64,7 +64,6 @@ handleSubmit(event){
     status: this.state.status, 
     created_by: this.state.created_by,
     assigned_to: this.state.assigned_to}
-    console.log('after', editedCard)
     this.props.editCard(editedCard)
     this.props.closeEdit('')
   }
