@@ -18,7 +18,7 @@ router
 
 .put(`/:id`, (req, res) => {
   let id = req.params.id
-  let {priority, name, status, created_by, assigned_to} = req.body
+  let {priority, name, status, created_by, assigned_to, details} = req.body
   return new Card({id, name, priority, status, created_by, assigned_to})
   .save()
   .then(updatedCard => {
