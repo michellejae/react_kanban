@@ -29,6 +29,7 @@ class App extends Component {
 
   render() {
     return (
+      <div className="main">
       <div className="parentClass">
         <div className="EditCard">
             {this.props.showEdit ? <EditCardForm id={this.props.showEdit}/> : null}
@@ -41,6 +42,7 @@ class App extends Component {
           <button className="formButton" onClick={this.handleNewCardForm}> New Task </button>
           <ColumnListContainer />
         </div>
+      </div>
       </div>
     )
   }
