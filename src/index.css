@@ -17,35 +17,32 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-  background: url('./assets/IMG_3294.jpg');
+  /* background: url('./assets/IMG_3294.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
 
 }
 
-.parentClass {
-  position: relative;
-
-}
 
 .title {
   padding-bottom: 20px;
   padding-top:20px;
   font-size: 2.5em;
-  color: black;
+  color: rgba(250, 19, 73, 0.934);
   text-align: left;
   margin-left: 20px;
 }
+
+.titleCheck {
+  height: 25px;
+}
+
 
 .ColumnContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-left: 100px;
-  margin-right: 100px;
-  padding-top: 20px;
- 
 }
 
 .singleColumn {

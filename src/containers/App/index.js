@@ -38,10 +38,11 @@ class App extends Component {
           {this.props.showAddForm ? <AddCardForm /> : null}
         </div>
         <div className="App">
+        <div><img src={require("../../assets/check-box.svg")} alt="womp"  className="titleCheck"/></div>
           <div className="title">
             Da Kanbanban
-            <button className="formButton" onClick={this.handleNewCardForm}> New Task </button>
             </div>  
+            <button className="formButton" onClick={this.handleNewCardForm}> New Task </button>
           <ColumnListContainer />
         </div>
       </div>
@@ -49,6 +50,8 @@ class App extends Component {
     )
   }
 }
+
+
 
 
 const mapStateToProp = state => {
@@ -71,3 +74,5 @@ const mapStateToProp = state => {
  }
 
  export default connect(mapStateToProp, mapDispatchToProps)(App)
+
+
