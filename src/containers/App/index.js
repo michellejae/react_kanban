@@ -29,7 +29,7 @@ class App extends Component {
 
   render() {
     return (
-    <div className="main">
+    
       <div className="parentClass">
         <div className="EditCard">
             {this.props.showEdit ? <EditCardForm id={this.props.showEdit}/> : null}
@@ -40,10 +40,9 @@ class App extends Component {
         <div className="App">
         <div className="title"><img src={require("../../assets/check-box.svg")} alt="womp"  className="titleCheck"/> it </div>
             <button className="formButton" onClick={this.handleNewCardForm}> New Task </button>
-          <ColumnListContainer />
+          <ColumnListContainer /> 
         </div>
       </div>
-    </div>
     )
   }
 }
