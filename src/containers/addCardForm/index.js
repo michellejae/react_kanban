@@ -9,6 +9,7 @@ class AddCardForm extends Component {
   
     this.state = {
       name: '',
+      details: '',
       priority: '',
       status: 'IN QUEUE',
       created_by: '',
@@ -16,6 +17,7 @@ class AddCardForm extends Component {
      }
      
      this.handleChangeName = this.handleChangeName.bind(this);
+     this.handleChangeDetails = this.handleChangeDetails.bind(this);
      this.handleChangePriority = this.handleChangePriority.bind(this);
      this.handleChangeCreatedBy = this.handleChangeCreatedBy.bind(this);
      this.handleChangeAssignedTo = this.handleChangeAssignedTo.bind(this);
@@ -27,6 +29,10 @@ class AddCardForm extends Component {
 
     handleChangeName(event){
       this.setState({name: event.target.value})
+    }
+
+    handleChangeDetails(event){
+      this.setState({details: event.target.value})
     }
 
     handleChangePriority(event){
@@ -43,13 +49,14 @@ class AddCardForm extends Component {
 
     handleSubmit(event){
       event.preventDefault();
-      const newCard = {name: this.state.name, 
-                       priority: this.state.priority, 
+      const newCard = {name: this.state.name,  
+                       details: this.state.details, 
+                       priority: this.state.priority,                      
                        status: this.state.status, 
                        created_by: this.state.created_by, 
                        assigned_to: this.state.assigned_to}
       this.props.newCard(newCard)
-      this.setState({ name: '', priority: '', created_by:'', assigned_to:'' });
+      this.setState({ name: '', details: '', priority: '', created_by:'', assigned_to:'' });
       this.props.addCard(false)
     }
     
@@ -76,6 +83,12 @@ class AddCardForm extends Component {
             onChange={this.handleChangePriority}
             placeholder="priority*"
             required
+          />
+          <input
+            type="text"
+            value={this.state.details}
+            onChange={this.handleChangeDetails}
+            placeholder="additional details"
           />
           <input
             type="text"

@@ -4,6 +4,7 @@ const initialState = {
   cards: [],
   singleCard: {   
     name: '',
+    details: '',
     priority: '',
     status: '',
     created_by: '',

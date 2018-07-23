@@ -45,6 +45,7 @@ export const addCardAction = (card) => {
   const addCard = {
     name: card.name,
     priority: card.priority,
+    details: card.details,
     status: card.status,
     created_by: card.created_by,
     assigned_to: card.assigned_to

@@ -29,21 +29,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="main">
+    <div className="main">
       <div className="parentClass">
         <div className="EditCard">
             {this.props.showEdit ? <EditCardForm id={this.props.showEdit}/> : null}
         </div>
         <div className="newCardForm">
-        {this.props.showAddForm ? <AddCardForm /> : null}
+          {this.props.showAddForm ? <AddCardForm /> : null}
         </div>
         <div className="App">
-          <AppTitle />
-          <button className="formButton" onClick={this.handleNewCardForm}> New Task </button>
+          <div className="title">
+            Da Kanbanban
+            <button className="formButton" onClick={this.handleNewCardForm}> New Task </button>
+            </div>  
           <ColumnListContainer />
         </div>
       </div>
-      </div>
+    </div>
     )
   }
 }

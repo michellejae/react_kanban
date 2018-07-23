@@ -47,8 +47,8 @@ router
 })
 
 .post(`/`, (req, res) => {
-  let {name, priority, status, created_by, assigned_to} = req.body
-  return new Card({name, priority, status, created_by, assigned_to})
+  let {name, details, priority, status, created_by, assigned_to} = req.body
+  return new Card({name, details, priority, status, created_by, assigned_to})
   .save()
   .then(newCard => {
     newCard = newCard.toJSON();
