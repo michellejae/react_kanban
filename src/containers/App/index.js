@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import logo from '../../../src/logo.svg';
 import './App.css';
-import AppTitle from '../../components/titleComp';
 import ColumnListContainer from '../Column'
 import  AddCardForm  from '../addCardForm' 
 import  EditCardForm from '../editCardForm'
@@ -48,6 +47,8 @@ class App extends Component {
             </div>
           </div>
           <ColumnListContainer /> 
+          <div className="bottom">
+          </div>
         </div>
       </div>
     )

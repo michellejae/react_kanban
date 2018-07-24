@@ -108,17 +108,33 @@ body {
 }
 .cardDetails {
   color: rgba(233, 22, 120, 0.934);
+  font-size: .9rem;
 }
 .cardCreatedBy {
   color: rgba(233, 22, 120, 0.934);
+  font-size: .85rem;
+  width: 50%;
 }
 .cardAssignedTo{
  color: rgba(233, 22, 120, 0.934);
+ font-size: .85rem;
+ width: 50%;
+}
+
+.createdAssigned {
+  display: flex;
+}
+
+.smallCardText {
+  color: black;
+  font-size: .7rem;
+  font-weight: 200;
 }
 
 span {
   color: black;
   font-weight: 200;
+  font-size: .85rem;
 }
 
 .editCard {
@@ -144,4 +160,9 @@ span {
 
 .mainForm input {
   width: 100%;
+}
+
+.bottom {
+  height: 50px;
+  color: yellow;
 }
