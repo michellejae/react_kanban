@@ -1,27 +1,14 @@
 
 body {
-     /* Set rules to fill background */
-     
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
 
-
-
 .parentClass {
-     /* Set up proportionate scaling */
-     width: 100%;
-     height: 100%;
-     
-     /* Set up positioning */
-     position: fixed;
-
-
-    /* background: url('./assets/IMG_3294.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
+  width: 100%;
+  height: 100%;
+  position: fixed;
 }
 
 .App {
@@ -29,13 +16,20 @@ body {
   height: 100%
 }
 
+.topper {
+  display: flex;
+  padding-bottom: 15px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .titleBox {
   display: flex;
-  padding-bottom: 10px;
 }
 
 .title {
-  font-size: 2.75em;
+  height: 45px;
+  font-size: 45px;
   color: rgba(233, 22, 120, 0.934);
   text-align: left;
   font-weight: 600;
@@ -46,12 +40,22 @@ body {
   padding-right: 7.5px;
 }
 
+.formButton {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+  font-size: 1.25;
+  font-weight: 200;
+  color: black;
+}
 
 .ColumnContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: #F3F3F4;
+  background-color: rgb(245, 243, 243);
   height: 100%;
   align-items: flex-start;
   margin-left: 40px;
@@ -72,13 +76,15 @@ body {
   /* color: rgba(233, 22, 120, 0.934); */
   font-size: 1.75rem;
   font-weight: 600;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .CardContainer {
   display: flex;
   flex-direction: column;
   margin: auto;
-  background-color: rgba(254, 254, 254, 0.60);
+  background: white;
   border-radius: 10px;
   padding-bottom: 15px;
 }
@@ -89,38 +95,10 @@ body {
   margin-left: 15px;
   text-align: left;
   padding: 7.5px;
-  background-color: #F3F3F4;
+  background-color: rgb(245, 243, 243);
   border-radius: 10px;
 }
 
-.editCard {
-  position: absolute;
-  top: 50%;
-  left: 30%;
-}
-
-
-
-.newCardForm {
-  position: absolute;
-  width: 40%;
-  top: 75%;
-  left:40%;
-  display: flex;
-  background-color: grey;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.mainForm{
-  border: solid blue 2px; 
-  width: 50%;
-}
-
-.mainForm input {
-  width: 100%;
-}
 
 .cardTitle {
   color: rgba(233, 22, 120, 0.934);
@@ -141,4 +119,29 @@ body {
 span {
   color: black;
   font-weight: 200;
+}
+
+.editCard {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+}
+.newCardForm {
+  position: absolute;
+  width: 40%;
+  top: 75%;
+  left:40%;
+  display: flex;
+  background-color: grey;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.mainForm{
+  border: solid blue 2px; 
+  width: 50%;
+}
+
+.mainForm input {
+  width: 100%;
 }
