@@ -5,16 +5,16 @@ const CardComponent = ({name, details, priority, created_by, assigned_to, handle
 
   return (
     <div  className="SingleCard">
-      <span  className="cardTitle">Task: {name}</span>
+      <div className="cardTitle">Task:<span className="test"> {name}</span></div>
+      
+      <div className="cardPriority">Priority: <span>{priority}</span></div>
       <br />
-      <span className="cardPriority">Priority: {priority}</span>
+      <div className="cardDetails">Additional Details: <span>{details}</ span></div>
       <br />
-      <span className="cardDetils">Additional Details: {details}</ span>
-      <br />
-      <span className="cardCreatedBy">Owner: {created_by}</span>
-      <br />
-      <span className="cardAssignedTo">Assigned to: {assigned_to}</span>
-      <br />
+      <div className="cardCreatedBy">Owner: <span>{created_by}</span></div>
+    
+      <div className="cardAssignedTo">Assigned to: <span>{assigned_to}</span></div>
+    
       <button className="editButton" id={id} onClick={handleEditButton}> Edit </button>
       <button className="deleteButton" id={id} onClick={handleDeleteCard}> Delete </button>
       {handleChangeLeft ?  <button id={id}  className="buttonLeft" onClick={handleChangeLeft}>  {`<`} </button> : null}

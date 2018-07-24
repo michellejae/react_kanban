@@ -68,9 +68,10 @@ body {
 }
 
 .columnTitle {
-  color: rgba(233, 22, 120, 0.934);
+  color: #24EDED;
+  /* color: rgba(233, 22, 120, 0.934); */
   font-size: 1.75rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .CardContainer {
@@ -87,7 +88,7 @@ body {
   margin-right: 15px;
   margin-left: 15px;
   text-align: left;
-  padding-left: 7.5px;
+  padding: 7.5px;
   background-color: #F3F3F4;
   border-radius: 10px;
 }
@@ -121,3 +122,23 @@ body {
   width: 100%;
 }
 
+.cardTitle {
+  color: rgba(233, 22, 120, 0.934);
+}
+.cardPriority{
+  color: rgba(233, 22, 120, 0.934);
+}
+.cardDetails {
+  color: rgba(233, 22, 120, 0.934);
+}
+.cardCreatedBy {
+  color: rgba(233, 22, 120, 0.934);
+}
+.cardAssignedTo{
+ color: rgba(233, 22, 120, 0.934);
+}
+
+span {
+  color: black;
+  font-weight: 200;
+}
