@@ -9,9 +9,10 @@ const CardComponent = ({name, details, priority, created_by, assigned_to, handle
       <br />
       <span className="cardPriority">Priority: {priority}</span>
       <br />
+      <span className="cardDetils">Additional Details: {details}</ span>
+      <br />
       <span className="cardCreatedBy">Owner: {created_by}</span>
       <br />
-      <span className="cardDetils">Additional Details: {details}</ span>
       <span className="cardAssignedTo">Assigned to: {assigned_to}</span>
       <br />
       <button className="editButton" id={id} onClick={handleEditButton}> Edit </button>

@@ -86,7 +86,7 @@ class Column extends Component {
    
         <div className="singleColumn">
           <div className="columnTitle"> {this.props.name} </div>
-          <br />
+         
           <div className="CardContainer">
     
             {

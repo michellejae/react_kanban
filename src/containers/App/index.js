@@ -38,8 +38,11 @@ class App extends Component {
           {this.props.showAddForm ? <AddCardForm /> : null}
         </div>
         <div className="App">
-        <div className="title"><img src={require("../../assets/check-box.svg")} alt="womp"  className="titleCheck"/> it </div>
-            <button className="formButton" onClick={this.handleNewCardForm}> New Task </button>
+        <div className="titleBox">
+          <img src={require("../../assets/check-box.svg")} alt="womp"  className="titleCheck"/> 
+          <div className="title"> it </div>
+          </div>
+            {/* <button className="formButton" onClick={this.handleNewCardForm}> New Task </button> */}
           <ColumnListContainer /> 
         </div>
       </div>
