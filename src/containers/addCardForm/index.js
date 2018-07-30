@@ -86,12 +86,6 @@ class AddCardForm extends Component {
           />
           <input
             type="text"
-            value={this.state.details}
-            onChange={this.handleChangeDetails}
-            placeholder="additional details"
-          />
-          <input
-            type="text"
             value={this.state.created_by}
             onChange={this.handleChangeCreatedBy}
             placeholder="created by*"
@@ -99,9 +93,17 @@ class AddCardForm extends Component {
           />
           <input
             type="text"
+            className="detailsAndAssigned"
             value={this.state.assigned_to}
             onChange={this.handleChangeAssignedTo}
             placeholder="assigned to"
+          />
+          <input
+            type="text"
+            className="detailsAndAssigned"
+            value={this.state.details}
+            onChange={this.handleChangeDetails}
+            placeholder="additional details"
           />
             <input type="submit" value="submit" />
             <div>* Required Fields</div>
