@@ -19,6 +19,16 @@ const passportRoute = require(`./routes/passport`)
 app.use(bodyParser.json());
 app.use(express.static(`public`));
 
+app.use(session({
+  store: new Redis(),
+  secret: CONFIG.passport.SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // app.get(`/api/hello`, (req, res) => {
 // res.send({ express: 'Hello From Express' })
