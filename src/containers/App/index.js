@@ -13,7 +13,9 @@ class App extends Component {
     super ()
  
     this.handleNewCardForm = this.handleNewCardForm.bind(this)
-
+    this.state = {
+      isActive : false
+    }
    }
 
   componentDidMount(){
@@ -23,6 +25,8 @@ class App extends Component {
 
   handleNewCardForm (){
     this.props.addCard(true)
+    const currentState = this.state.isActive
+    this.setState({ isActive: !currentState });
     }
   
 
