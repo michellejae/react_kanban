@@ -3,6 +3,10 @@ const passport = require(`passport`);
 const CONFIG = require(`../../CONFIG/config`);
 const USER = require(`../models/User`);
 
+router.get('/logout', (req, res) => {
+  req.logout();
+})
+
 router.get('/google', passport.authenticate('google', {
   scope:['profile']
 }))
