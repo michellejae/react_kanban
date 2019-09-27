@@ -24,8 +24,11 @@ passport.use(new googleStrategy( {
   clientID: CONFIG.google.clientID,
   clientSecret: CONFIG.google.clientSECRET
 }, (accessToken, refreshToken, profile, done) => {
+    findOrCreate(profile,done)
+  }) 
+)
 
- 
+const findOrCreate = (profile, done) => {
   return new User({googleId:profile.id}).fetch()
     .then(currentUser => {
       if(currentUser === null){
@@ -43,5 +46,4 @@ passport.use(new googleStrategy( {
     }).catch(err =>{
       console.log(`error : ${err}`)
     })
-  }
-))
+}
